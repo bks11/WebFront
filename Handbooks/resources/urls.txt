@@ -1,0 +1,10 @@
+Кнопки по центру
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_center-flex_btn
+https://www.w3schools.com/howto/howto_css_center_button.asp
+Закрытие по escape
+https://www.freakyjolly.com/how-to-hide-or-close-div-using-escape-key-javascript-jquery-angularjs/
+How TO - Collapse Sidebar
+https://www.w3schools.com/howto/howto_js_collapse_sidebar.asp
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_collapse_sidebar
+CSS Selector Reference
+https://www.w3schools.com/cssref/css_selectors.asp
