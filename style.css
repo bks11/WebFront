@@ -1,0 +1,143 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border: 3px solid yellow; 
+  }
+html, body{
+      height: 100%;
+  }
+.btn_div{
+      display: block;
+      align-items: center;
+      margin: 10px;
+  }
+.btn{
+      color: aliceblue;
+      width: 100px;
+      border-radius: 5px;
+  }
+.btnM {
+  color: aliceblue;
+  width: 100px;
+  background:rgb(44, 59, 194)
+}
+
+#btn_first{
+     background: rgb(80,0,0);
+ } 
+#btn_second{
+    background: rgb(0, 80, 0);
+} 
+#btn_third{
+    background: rgb(0,0,80);
+} 
+#btn_first:hover{
+    background: rgb(255,0,0);
+} 
+#btn_second:hover{
+   background: rgb(0, 255, 0);
+} 
+#btn_third:hover{
+   background: rgb(0, 0, 255);
+} 
+.lsidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(250, 250, 250);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+.rsidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgb(250, 250, 250);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+.rsidebar a:hover span {
+    color: #000000;
+  }
+
+.lsidebar a:hover span {
+    color: #000000;
+  }
+.lsidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 14px;
+    margin-left: 50px;
+  }
+.rsidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 14px;
+    margin-left: 50px;
+  }
+.boxTitle div a{
+      display: inline-block;
+  }
+#lheader{
+    position: absolute;
+    top: 0;
+    left: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 50px;
+  }
+#rheader{
+    position: absolute;
+    top: 0;
+    left: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 50px;
+  }
+/* Modal window */
+.modalWindow{
+    display:none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+}
+/* Modal Content */
+.modalCnt {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+/* The Close Button */
+.closeModal {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.closeModal:hover,
+.closeModal:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
