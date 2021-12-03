@@ -3,8 +3,22 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_center-flex_btn
 https://www.w3schools.com/howto/howto_css_center_button.asp
 Закрытие по escape
 https://www.freakyjolly.com/how-to-hide-or-close-div-using-escape-key-javascript-jquery-angularjs/
+
 How TO - Collapse Sidebar
 https://www.w3schools.com/howto/howto_js_collapse_sidebar.asp
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_collapse_sidebar
+
 CSS Selector Reference
 https://www.w3schools.com/cssref/css_selectors.asp
+
+Импорт модуля
+https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/import
+Этот код вставляет объект myModule в текущую область видимости, содержащую все экспортированные значения из модуля, находящегося в файле /modules/my-module.js.
+
+import * as myModule from '/modules/my-module.js';
+
+В данном случае, доступ к импортируемым значениям можно осуществить с использованием имени модуля 
+(в данном случае "myModule") в качестве пространства имён. 
+Например, если импортируемый выше модуль включает в себя экспорт метода doAllTheAmazingThings(), вы можете вызвать его так:
+
+myModule.doAllTheAmazingThings();
