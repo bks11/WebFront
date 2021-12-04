@@ -1,4 +1,4 @@
-import * as bussinesModuke from 'bussines.js'
+//import * as bussinesModule from 'bussines.js'
 const COLOR_RED = "#F00";
 const COLOR_GREEN = "#0F0";
 const COLOR_BLUE = "#00F";
@@ -49,6 +49,8 @@ function closeModalWindow(){
     m.style.display = "none";
 }
 
+
+
 let modal = document.getElementById("mw");
 // let btn = document.getElementById("btn_third");
 let spanCloseBtn = document.getElementById("sCloseModalBtn");
@@ -61,6 +63,42 @@ let spanCloseBtn = document.getElementById("sCloseModalBtn");
 //     modal.style.display = "none"
 // }
 
+// BUSSINES PART
 
+function readJson(){
+    let client = new XMLHttpRequest();
+    client.open('GET', 'data.json');
+    client.onreadystatechange = function() {
+    alert(client.responseText);
+}
+client.send();
+}
+
+function readJSONFromFile(callback){
+  let xobj = new XMLHttpRequest();
+  xobj.overrideMimeType("application/json");
+  xobj.open('GET','data.json',true);
+  xobj.onreadystatechange = function () {
+      if (xobj.readyState == 4 && xobj.status == "200") {
+
+          // .open will NOT return a value but simply returns undefined in async mode so use a callback
+          callback(xobj.responseText);
+      }
+  }
+  xobj.send(null);
+}
+
+
+function getData(){
+  readJSONFromFile(function(response) {
+      // Do Something with the response e.g.
+      let jsonresponse = JSON.parse(response);
+      
+      // Assuming json data is wrapped in square brackets as Drew suggests
+      console.log(jsonresponse[0].name);
+      
+      }
+  );
+}
 
   
