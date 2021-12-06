@@ -22,3 +22,20 @@ import * as myModule from '/modules/my-module.js';
 Например, если импортируемый выше модуль включает в себя экспорт метода doAllTheAmazingThings(), вы можете вызвать его так:
 
 myModule.doAllTheAmazingThings();
+
+////////////
+
+https://stackoverflow.com/questions/19721439/download-json-object-as-a-file-from-browser/30800715#30800715
+This would be a pure JS version (adapted from cowboy's):
+
+var obj = {a: 123, b: "4 5 6"};
+var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
+
+var a = document.createElement('a');
+a.href = 'data:' + data;
+a.download = 'data.json';
+a.innerHTML = 'download JSON';
+
+var container = document.getElementById('container');
+container.appendChild(a);
+http://jsfiddle.net/sz76c083/1
