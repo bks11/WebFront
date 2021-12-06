@@ -51,54 +51,72 @@ function closeModalWindow(){
 
 
 
-let modal = document.getElementById("mw");
-// let btn = document.getElementById("btn_third");
-let spanCloseBtn = document.getElementById("sCloseModalBtn");
+// let modal = document.getElementById("mw");
+// let spanCloseBtn = document.getElementById("sCloseModalBtn");
 
-// btn.onclick = function() {
-//     modal.style.display = "block";
-//   }
-
-// spanCloseBtn.onclick = function(){
-//     modal.style.display = "none"
-// }
 
 // BUSSINES PART
 
-function readJson(){
-    let client = new XMLHttpRequest();
-    client.open('GET', 'data.json');
-    client.onreadystatechange = function() {
-    alert(client.responseText);
-}
-client.send();
-}
 
-function readJSONFromFile(callback){
-  let xobj = new XMLHttpRequest();
-  xobj.overrideMimeType("application/json");
-  xobj.open('GET','data.json',true);
-  xobj.onreadystatechange = function () {
-      if (xobj.readyState == 4 && xobj.status == "200") {
-
-          // .open will NOT return a value but simply returns undefined in async mode so use a callback
-          callback(xobj.responseText);
-      }
-  }
-  xobj.send(null);
+function genData(){
+    let arr = new Array();
+    for(i = 0; i <= 7; i++){
+        b = i % 2 === 0 ? true : false
+        let itm = {
+            id : i,
+            title : "Titel" + i,
+            time : new Date,
+            active : b
+        }
+      arr[i] = itm;   
+    }
+    
+    return arr;
 }
 
+function wrapToJSON(){
+  let dataVal = genData();
+  let dataObj = {
+      data : dataVal
+  };  
+  let jsonString = JSON.stringify(dataObj);
+  //debug
+  console.log(jsonString);
+  console.log(dataVal[5].active);
+  console.log(dataVal[4].active);
+  // end debug
+  let dataRef = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dataObj));
+  let aref = document.createElement('a');
+  aref.href = 'data:' + dataRef;
+  aref.download = 'data.json';
+  aref.innerHTML = 'download JSON';
 
-function getData(){
-  readJSONFromFile(function(response) {
-      // Do Something with the response e.g.
-      let jsonresponse = JSON.parse(response);
-      
-      // Assuming json data is wrapped in square brackets as Drew suggests
-      console.log(jsonresponse[0].name);
-      
-      }
-  );
+  let container = document.getElementById('hrefcontainer');
+  container.appendChild(aref);
 }
+
+// function readJson(){
+//     let client = new XMLHttpRequest();
+//     client.open('GET', 'data.json');
+//     client.onreadystatechange = function() {
+//     alert(client.responseText);
+//     }
+// client.send();
+// }
+
+// function readJSONFromFile(callback){
+//   let xobj = new XMLHttpRequest();
+//   xobj.overrideMimeType("application/json");
+//   xobj.open('GET','data.json',true);
+//   xobj.onreadystatechange = function () {
+//       if (xobj.readyState == 4 && xobj.status == "200") {
+
+//           // .open will NOT return a value but simply returns undefined in async mode so use a callback
+//           callback(xobj.responseText);
+//       }
+//   }
+//   xobj.send(null);
+// }
+
 
   
