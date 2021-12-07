@@ -10,6 +10,7 @@
         <div id="leftSidebar" class="lsidebar">
             <span id="lheader">Left slide bar</span> 
             <a href="javascript:void(0)" class="closebtn" onclick="closeLeftNav()">x</a>
+            <pre id="jsonShow"></pre>
         </div>
 
         <div id="rightSidebar" class="rsidebar" tabindex="0" onkeydown="closeRightNav()">
@@ -31,11 +32,16 @@
             </div>
          </div>
          <!--Modal window-->
-         <div id="mw" class="modalWindow">
+         <div id="mw" class="modalWindow">          
              <div class="modalCnt">
-                <span id="sCloseModalBtn" class="closeModal" onclick="closeModalWindow()">&times;</span>
+                <div class="CloseModalBtn">
+                    <span id="sCloseModalBtn" class="closeModal" onclick="closeModalWindow()">X</span>
+                    <span id="modalTitle" class="closeModal">Modal</span>
+                    
+                </div>
+                <p>&nbsp</p>
                 <div class="btn_div">
-                    <button id="btnGetData" class="btnM"onmouseover="" onmouseout="" onclick="">Get Data</button>
+                    <button id="btnGetData" class="btnM"onmouseover="" onmouseout="" onclick="showFormatedJSON()">Get Data</button>
                 </div>
                 <div class="btn_div">
                     <button id="btnRenderData" class="btnM"onmouseover="" onmouseout="" onclick="">Render Data</button>

@@ -58,9 +58,9 @@ function closeModalWindow(){
 // BUSSINES PART
 
 
-function genData(){
+function genData(recCount){
     let arr = new Array();
-    for(i = 0; i <= 7; i++){
+    for(i = 0; i <= recCount; i++){
         b = i % 2 === 0 ? true : false
         let itm = {
             id : i,
@@ -75,7 +75,7 @@ function genData(){
 }
 
 function wrapToJSON(){
-  let dataVal = genData();
+  let dataVal = genData(7);
   let dataObj = {
       data : dataVal
   };  
@@ -93,6 +93,14 @@ function wrapToJSON(){
 
   let container = document.getElementById('hrefcontainer');
   container.appendChild(aref);
+}
+
+function showFormatedJSON(){
+  let dataVal = genData(10);
+  let dataObj = {
+      data : dataVal
+  };
+  document.getElementById("jsonShow").innerHTML = JSON.stringify(dataObj, undefined, 2);
 }
 
 // function readJson(){
