@@ -62,10 +62,17 @@ function genData(recCount){
     let arr = new Array();
     for(i = 0; i <= recCount; i++){
         b = i % 2 === 0 ? true : false
+        let d = new Date();
+        let dStr = d.getUTCFullYear() +"/"+ 
+                    (d.getUTCMonth()+1) +"/"+ 
+                    d.getUTCDate() + " " + 
+                    d.getHours() + ":" + 
+                    d.getUTCMinutes() + ":" + 
+                    d.getUTCSeconds();
         let itm = {
             id : i,
             title : "Titel" + i,
-            time : new Date,
+            time : dStr,
             active : b
         }
       arr[i] = itm;   
@@ -96,11 +103,69 @@ function wrapToJSON(){
 }
 
 function showFormatedJSON(){
-  let dataVal = genData(10);
+  let dataVal = genData(1005);
   let dataObj = {
       data : dataVal
   };
   document.getElementById("jsonShow").innerHTML = JSON.stringify(dataObj, undefined, 2);
+}
+
+function showTable(){
+    let da = genData(30);
+    let dataObj = {
+      data : da
+  };
+    let tblCont = document.getElementById("tblArea");
+    let tblData = dataObj.data;
+    //let ii = tblData.length;
+    //console.log(ii);
+
+    //Create table
+    let tbl = document.createElement('table');
+
+    let tblHeaderRow = document.createElement('tr');
+
+    let idHeader = document.createElement('th');
+    idHeader.appendChild(document.createTextNode("id"));
+    let titleHeader = document.createElement('th');
+    titleHeader.appendChild(document.createTextNode("title"));
+    let timeHeader = document.createElement('th');
+    timeHeader.appendChild(document.createTextNode("time"));
+    let activeHeader = document.createElement('th');
+    activeHeader.appendChild(document.createTextNode("active"));
+
+    tblHeaderRow.appendChild(idHeader);
+    tblHeaderRow.appendChild(titleHeader);
+    tblHeaderRow.appendChild(timeHeader);
+    tblHeaderRow.appendChild(activeHeader);
+    tbl.appendChild(tblHeaderRow);
+  
+    for(i = 0; i < tblData.length; i++){
+        let tblRow = document.createElement('tr');  
+
+        let idData = tblData[i].id;
+        let titleData = tblData[i].title;
+        let timeData = tblData[i].time;
+        let activeData = tblData[i].active;
+        
+        let idCell = document.createElement('td');
+        let titleCell = document.createElement('td');
+        let timeCell  = document.createElement('td');
+        let activeCell = document.createElement('td');
+
+        idCell.appendChild(document.createTextNode(idData));
+        titleCell.appendChild(document.createTextNode(titleData));
+        timeCell.appendChild(document.createTextNode(timeData));
+        activeCell.appendChild(document.createTextNode(activeData));
+
+        tblRow.appendChild(idCell);
+        tblRow.appendChild(titleCell);
+        tblRow.appendChild(timeCell);
+        tblRow.appendChild(activeCell);
+
+        tbl.appendChild(tblRow);
+    }
+    tblCont.appendChild(tbl);
 }
 
 // function readJson(){

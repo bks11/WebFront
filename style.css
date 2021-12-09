@@ -8,6 +8,14 @@
 html, body{
       height: 100%;
   }
+table, td, th{
+  border: solid;
+  border-width: thin ;
+}
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
 .btn_div{
       display: block;
       align-items: center;
@@ -126,7 +134,7 @@ html, body{
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: thin solid #888;
   width: 80%;
   height: auto;
 }
@@ -146,6 +154,7 @@ html, body{
 }
 
 .CloseModalBtn{
+  border-width: th;
   border-bottom : solid;
   border-color: black; 
   height: 20px;
