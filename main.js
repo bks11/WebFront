@@ -4,52 +4,8 @@ const COLOR_BLUE = "#00F";
 const COLOR_ORANGE = "#FF7F00";
 
 
-export let lSideOpen = false;
-export let rSideOpen = false;
 
-//let el = document.getElementById("rightSidebar");
-window.onkeyup = function(event){
-  if (event.keyCode == 27){
-    document.getElementById("rightSidebar").style.width = "0";
-  }
-}
-
-function openLeftNav() {
-    document.getElementById("leftSidebar").style.width = "250px";
-    lSideOpen = true;
-  }
-
-  function closeLeftNav() {
-    document.getElementById("leftSidebar").style.width = "0";
-    lSideOpen = false;
-  }  
-
-function openRightNav() {
-    document.getElementById("rightSidebar").style.width = "300px";
-    rSideOpen = true;
-  }
-  
-
-
-function closeRightNav() {
-    document.getElementById("rightSidebar").style.width = "0";
-    rSideOpen = false;
-  }
-function showModalWindow()
-{
-    if(rSideOpen && lSideOpen){
-      
-      genData(1010);
-      let m = document.getElementById("mw");
-      m.style.display = "block";
-    }
-}
-
-function closeModalWindow(){
-    let m = document.getElementById("mw");
-    m.style.display = "none";
-}
- export { openLeftNav, closeLeftNav, openRightNav, showModalWindow, closeModalWindow };
+ //export { openLeftNav, closeLeftNav, openRightNav, showModalWindow, closeModalWindow };
 
 
 

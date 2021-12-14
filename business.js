@@ -2,8 +2,8 @@ let RESPONSE = new Object();
 
 function genData(recCount){
     let arr = new Array();
-    for(i = 0; i <= recCount; i++){
-        b = i % 2 === 0 ? true : false
+    for(let i = 0; i <= recCount; i++){
+        const b = i % 2 === 0 
         let d = new Date();
         let dStr = d.getUTCFullYear() +"/"+ 
                     (d.getUTCMonth()+1) +"/"+ 
@@ -35,7 +35,7 @@ function wrapToJSON(){
  // console.log(dataVal[4].active);
   // end debug
   let dataRef = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(RESPONSE));
-  let aref = document.createElement('a');
+  let aref = document.createElement('a');  // const
   aref.href = 'data:' + dataRef;
   aref.download = 'data.json';
   aref.innerHTML = 'download JSON';
@@ -51,17 +51,39 @@ function getData(){
   // };
   document.getElementById("jsonShow").innerHTML = JSON.stringify(RESPONSE, undefined, 2);
 }
+const renderDataToTable = () => {
+    const tblData = RESPONSE.data;
+    if('content' in document.createElement('template')) {
+        const tbody = document.querySelector('tbody')
+        const template = document.querySelector('#recordrow')
 
-function renderData(resp){
+        for(let i = 0; i < tblData.length; i++) {
+            const newrow = template.content.cloneNode(true)
+            const td = newrow.querySelectorAll('td')
+            td[0].textContent = tblData[i].id
+            td[1].textContent = tblData[i].title
+            td[2].textContent = tblData[i].time
+            td[3].textContent = tblData[i].active
+
+            tbody.appendChild(newrow)
+        }
+    } else {
+        alert('Broser not supports template')
+    }
+}
+function renderData(){
   //   let da = genData(1100);
   //   let dataObj = {
   //   data : da
   // };
     let tblCont = document.getElementById("tblArea");
-    let tblData = resp.data;
+    let tblData = RESPONSE.data;
     //let ii = tblData.length;
     //console.log(ii);
 
+    //read about  Template  
+    //document.createElement('template')
+        
     //Create table
     let tbl = document.createElement('table');
 
@@ -82,7 +104,7 @@ function renderData(resp){
     tblHeaderRow.appendChild(activeHeader);
     tbl.appendChild(tblHeaderRow);
   
-    for(i = 0; i < tblData.length; i++){
+    for(let i = 0; i < tblData.length; i++) {
         let tblRow = document.createElement('tr');  
 
         let idData = tblData[i].id;
@@ -110,16 +132,16 @@ function renderData(resp){
     tblCont.appendChild(tbl);
 }
 
-function sendUpdate(resp){
-    let activeRecords = RESPONSE.data.filter(a => a.active == true);
+function sendUpdate(){
+    let activeRecords = RESPONSE.data.filter(a => a.active);
     console.log(activeRecords);
 }
 
-function doSomeSteps(someData){
+function doSomeSteps(){
     showAlert(someData);
 }
 
-export { RESPONSE, genData, renderData };
+export { RESPONSE, getData, genData, renderData, sendUpdate, renderDataToTable };
 
 // function readJSONFromFile(callback){
 //     let xobj = new XMLHttpRequest();
