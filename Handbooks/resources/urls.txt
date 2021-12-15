@@ -42,3 +42,51 @@ http://jsfiddle.net/sz76c083/1
 
 Module scope
 https://stackoverflow.com/questions/44590393/es6-modules-undefined-onclick-function-after-import
+
+Template
+https://developer.mozilla.org/ru/docs/Web/HTML/Element/template
+
+
+const vs let - https://teamtreehouse.com/community/javascript-and-the-dom-selecting-by-id-let-vs-const
+
+const a = 3
+a + 1;  //not allowed
+
+const b = {
+   name: "Michael"
+}
+
+b.name = "Mike"  // allowed
+but
+
+const c = {
+   name:"Mitch"
+}
+
+//not allowed, since I'm not simply accessing the existing value and updating it, but rather creating a new object literal.
+c = {
+  name: "Mick"
+}
+
+Get last item in an array
+https://stackoverflow.com/questions/3216013/get-the-last-item-in-an-array
+if (locArray.at(-1) === 'index.html') {
+	// do something
+} else {
+	// something else
+}
+
+
+
+slice
+Метод slice() не изменяет исходный массив, а возвращает новую «одноуровневую» копию, содержащую копии элементов, вырезанных из исходного массива. Элементы исходного массива копируются в новый массив по следующим правилам:
+
+Ссылки на объекты (но не фактические объекты): метод slice() копирует ссылки на объекты в новый массив. И оригинал, и новый массив ссылаются на один и тот же объект. То есть, если объект по ссылке будет изменён, изменения будут видны и в новом, и в исходном массивах.
+Строки и числа (но не объекты String и Number): метод slice() копирует значения строк и чисел в новый массив. Изменения строки или числа в одном массиве никак не затрагивает другой.
+Если к любому массиву будет добавлен новый элемент, это никак не повлияет на другой массив.
+
+https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+Метод splice() изменяет содержимое массива, удаляя существующие элементы и/или добавляя новые.
+
+https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+Метод map() создаёт новый массив с результатом вызова указанной функции для каждого элемента массива.
