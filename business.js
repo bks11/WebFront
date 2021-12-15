@@ -29,10 +29,18 @@ const genData = (recCount) => {
   RESPONSE.data = arr
   return arr
 }
-  // move work with DOM elements to index.js 
-	// only data calculation
 
-
+const getDataFromFile = () => {
+  RESPONSE.data = readJSONFromFile( (text) => {
+    let data = JSON.parse(text)
+    return data
+  })
+  console.log(RESPONSE.data)
+  return RESPONSE
+  
+}
+// move work with DOM elements to index.js 
+// only data calculation
 
 const sendUpdate = () => {
   const activeRecords = RESPONSE.data.filter(a => a.active)
@@ -62,11 +70,26 @@ const doSomeSteps = (someData) => {
   console.log(partData)
   let testMap = partData.map( (x) => {return `<tr><td>${x.id}</td><td>${x.title}</td><td>${x.time}</td><td>${x.active}</td></tr>`})
   console.log(testMap)
-
-
-	
 }
     
+const readJSONFromFile = (callback) => {
+  let xobj = new XMLHttpRequest()
+  xobj.overrideMimeType("application/json")
+  xobj.open('GET','/data.json',true)
+  xobj.onreadystatechange = function () {
+      if (xobj.readyState == 4 && xobj.status == "200") {
+
+          // .open will NOT return a value but simply returns undefined in async mode so use a callback
+          callback(xobj.responseText)
+      }
+  }
+  xobj.send(null)
+}
+
+// readJSONFromFile(function(text){
+//   let data = JSON.parse(text);
+//   document.getElementById("jsonShow").innerHTML = JSON.stringify(data, undefined, 2);
+// })
 
 //Back quotes
 //const template = document.createElement('template')
@@ -91,7 +114,7 @@ const doSomeSteps = (someData) => {
 // container.append(template.content.cloneNode(true))
 
 
-export {  genData,  sendUpdate,  doSomeSteps }
+export {  genData,  sendUpdate,  doSomeSteps, getDataFromFile }
 
 // function readJSONFromFile(callback){
 //     let xobj = new XMLHttpRequest()

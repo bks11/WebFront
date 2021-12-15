@@ -1,5 +1,5 @@
 
-import { genData,  sendUpdate, doSomeSteps } from './business.js'
+import { genData,  sendUpdate, doSomeSteps, getDataFromFile } from './business.js'
 // document.getElementById('btn_first').onclick = window.ShowLeftPanel Question?
 
 window.onkeyup = event => {
@@ -60,8 +60,8 @@ const wrapToJSON = () => {
 
 const getData = () => {
   let dataJSON = new Object()
-  dataJSON.data = genData(1010)
-  document.getElementById('jsonShow').innerHTML = JSON.stringify(dataJSON, undefined, 2)
+  dataJSON.data = getDataFromFile()
+  document.getElementById('jsonShow').innerHTML = JSON.stringify(dataJSON.data, undefined, 2)
 }
 
 
@@ -99,6 +99,7 @@ window.renderDataToTable = renderDataToTable
 
 //business module
 window.genData = genData
+window.getDataFromFile = getDataFromFile
 //window.renderData = renderData
 window.sendUpdate = sendUpdate
 window.doSomeSteps = doSomeSteps
