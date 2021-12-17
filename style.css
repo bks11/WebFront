@@ -31,24 +31,6 @@ table{
   width: 100px;
   background:rgb(44, 59, 194)
 }
-#btn_first{
-     background: rgb(80,0,0);
- } 
-#btn_second{
-    background: rgb(0, 80, 0);
-} 
-#btn_third{
-    background: rgb(0,0,80);
-} 
-#btn_first:hover{
-    background: rgb(255,0,0);
-} 
-#btn_second:hover{
-   background: rgb(0, 255, 0);
-} 
-#btn_third:hover{
-   background: rgb(0, 0, 255);
-} 
 #btn_fourth{
   background: rgb(100, 15, 255);
 }

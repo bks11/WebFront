@@ -8,42 +8,48 @@
 // Compare objects in JS 
 // queryselector  bootstrap
 
+
+// use bootstrap for modal window
+// Read about apply, bind, call
+// sCloseModalBtn.addEventListener('click', a)
+// sCloseModalBtn.removeEventListener('click', a)
+
 import { genData,  sendUpdate, doSomeSteps, getDataFromFile } from './business.js'
 
-let lSideOpen = false
-let rSideOpen = false
 
 window.onload = () => {
+	let lSideOpen = false
+	let rSideOpen = false
 	//List all elements
 	const 
 		//Main page controls
-		rightSlideBar 		= document.getElementById('rightSidebar'),
-		leftSidebar 		= document.getElementById('leftSidebar'),
-		lheader 			= document.getElementById('lheader'),
-		leftSideBarClsBtn 	= document.getElementById('leftSideBarClsBtn'),
-		jsonShow 			= document.getElementById('jsonShow'),
-		rightSidebar 		= document.getElementById('rightSidebar'),
-		tblArea 			= document.getElementById('tblArea'),
-		btn_first 			= document.getElementById('btn_first'),
-		btn_second 			= document.getElementById('btn_second'),
-		btn_third 			= document.getElementById('btn_third'),
+		rightSlideBar 		= document.querySelector('#rightSidebar'),
+		leftSidebar 		= document.querySelector('#leftSidebar'),
+		lheader 			= document.querySelector('#lheader'),
+		leftSideBarClsBtn 	= document.querySelector('#leftSideBarClsBtn'),
+		jsonShow 			= document.querySelector('#jsonShow'),
+		rightSidebar 		= document.querySelector('#rightSidebar'),
+		tblArea 			= document.querySelector('#tblArea'),
+		btn_first 			= document.querySelector('#btn_first'),
+		btn_second 			= document.querySelector('#btn_second'),
+		btn_third 			= document.querySelector('#btn_third'),
 		//Modal window controls
-		modalWindow 		= document.getElementById('mw'),
-		sCloseModalBtn 		= document.getElementById('sCloseModalBtn'),
-		btnGetData 			= document.getElementById('btnGetData'),
-		btnRenderData 		= document.getElementById('btnRenderData'),
-		btnDoSomeSteps		= document.getElementById('btnDoSomeSteps'),
-		btnSendUpdate 		= document.getElementById('btnSendUpdate'),
-		btnGenHref 			= document.getElementById('btnGenHref'),
-		hrefcontainer 		= document.getElementById('hrefcontainer'),
-		secrowjsonShow		= document.getElementById('secrowjsonShow')
+		modalWindow 		= document.querySelector('#mw'),
+		sCloseModalBtn 		= document.querySelector('#sCloseModalBtn'),
+		btnGetData 			= document.querySelector('#btnGetData'),
+		btnRenderData 		= document.querySelector('#btnRenderData'),
+		btnDoSomeSteps		= document.querySelector('#btnDoSomeSteps'),
+		btnSendUpdate 		= document.querySelector('#btnSendUpdate'),
+		btnGenHref 			= document.querySelector('#btnGenHref'),
+		hrefcontainer 		= document.querySelector('#hrefcontainer'),
+		secrowjsonShow		= document.querySelector('#secrowjsonShow')
 	
 	window.onkeyup = event => {
 		if (event.keyCode == 27) {
 			rightSlideBar.style.width = '0'
 		}
 	}
-
+	
 	leftSideBarClsBtn.onclick = () => {
 		leftSidebar.style.width = '0'
   		lSideOpen = false
@@ -62,11 +68,39 @@ window.onload = () => {
 			modalWindow.style.display = 'block'
 		}
 	}
-	sCloseModalBtn.onclick = () => modalWindow.style.display = 'none'
-	btnGetData.onclick = () => {
-		const dataJSON =  getDataFromFile()
-		jsonShow.innerHTML = JSON.stringify(dataJSON, undefined, 2)
+
+	
+	// sCloseModalBtn.onclick = () => modalWindow.style.display = 'none'
+	// const onCloseModalClick = (param) => () => modalWindow.style.display = 'none'
+	// const a = onCloseModalClick('ddd')
+	// sCloseModalBtn.addEventListener('click', a)
+	// sCloseModalBtn.removeEventListener('click', a)
+
+	const addToEvent = function()  {
+		//debugger
+		const context = this
+		modalWindow.style.display = 'none'
 	}
+	//debugger
+	//addToEvent()
+	const o = {
+		a: 1,
+		b: 2
+	}
+
+	// Read about apply, bind, call
+	const addContext = addToEvent.bind(o)
+	sCloseModalBtn.addEventListener('click', addContext)
+	
+
+	btnGetData.addEventListener('click', () =>{
+		const dataJSON = getDataFromFile()
+		jsonShow.innerHTML = JSON.stringify(dataJSON, undefined, 2)
+	})
+	// btnGetData.onclick = () => {
+	// 	const dataJSON =  getDataFromFile()
+	// 	jsonShow.innerHTML = JSON.stringify(dataJSON, undefined, 2)
+	// }
 	btnRenderData.onclick = () => {
 		const 
 			{ data }	= getDataFromFile(),  // destructor
