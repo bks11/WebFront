@@ -31,7 +31,6 @@ table{
   width: 100px;
   background:rgb(44, 59, 194)
 }
-
 #btn_first{
      background: rgb(80,0,0);
  } 
@@ -152,7 +151,6 @@ table{
   text-decoration: none;
   cursor: pointer;
 }
-
 .CloseModalBtn{
   border-width: th;
   border-bottom : solid;

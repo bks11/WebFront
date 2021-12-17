@@ -10,48 +10,27 @@
     <body>
         <div id="leftSidebar" class="lsidebar">
             <span id="lheader">Left slide bar</span> 
-            <a href="javascript:void(0)" class="closebtn" onclick="closeLeftNav()">x</a>
+            <a href="javascript:void(0)" id="leftSideBarClsBtn" class="closebtn">x</a>
             <pre id="jsonShow"></pre>
         </div>
-
-        <div id="rightSidebar" class="rsidebar" tabindex="0" onkeydown="closeRightNav()">
+        <div id="rightSidebar" class="rsidebar" tabindex="0">
             <span id="rheader">Right slide bar</span> 
-            <a href="javascript:void(0)" class="closebtn" onclick="closeRightNav()">x</a>
+            <span class="closebtn">Close when press esc</span>
             <div id="tblArea">
-                <table>
-                    <thead>
-                        <tr>
-                            <td>id</td>
-                            <td>title</td>
-                            <td>time</td>
-                            <td>active</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- данные будут вставлены сюда -->
-                    </tbody>
-                </table>
-                <template id="recordrow">
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </template>
+                
             </div>
         </div>
 
         <div class="center">
             <div>
                 <div class="btn_div">
-                    <button id="btn_first" class="btn"onmouseover="" onmouseout="" onclick="openLeftNav()">First</button>
+                    <button id="btn_first" class="btn">First</button>
                 </div>
                 <div class="btn_div">
-                    <button id="btn_second" class="btn" onmouseover="" onmouseout="" onclick="openRightNav()">Second</button>
+                    <button id="btn_second" class="btn">Second</button>
                 </div>
                 <div class="btn_div">
-                    <button id="btn_third" class="btn"onmouseover="" onmouseout="" onclick="showModalWindow()">Third</button>
+                    <button id="btn_third" class="btn">Third</button>
                 </div>                
             </div>
          </div>
@@ -59,24 +38,27 @@
          <div id="mw" class="modalWindow">          
              <div class="modalCnt">
                 <div class="CloseModalBtn">
-                    <span id="sCloseModalBtn" class="closeModal" onclick="closeModalWindow()">X</span>
+                    <span id="sCloseModalBtn" class="closeModal">X</span>
                     <span id="modalTitle" class="closeModal">Modal</span> 
                 </div>
                 <p>&nbsp</p>
                 <div class="btn_div">
-                    <button id="btnGetData" class="btnM"onmouseover="" onmouseout="" onclick="getData()">Get Data</button>
+                    <button id="btnGetData" class="btnM">Get Data</button>
                 </div>
                 <div class="btn_div">
-                    <button id="btnRenderData" class="btnM"onmouseover="" onmouseout="" onclick="renderDataToTable()">Render Data</button>
+                    <button id="btnRenderData" class="btnM">Render Data</button>
                 </div>
                 <div class="btn_div">
-                    <button id="btnRenderData" class="btnM"onmouseover="" onmouseout="" onclick="sendUpdate()">Send Update</button>
+                    <button id="btnSendUpdate" class="btnM">Send Update</button>
                 </div>                
                 <div class="btn_div">
-                    <button id="btnDoSomeSteps" class="btnM"onmouseover="" onmouseout="" onclick="doSomeSteps()">Do Some Steps</button>
+                    <button id="btnDoSomeSteps" class="btnM">Do Some Steps</button>
                 </div>
                 <div class="btn_div" id="hrefcontainer">
-                    <button id="btnGenHref" class="btnM"onmouseover="" onmouseout="" onclick="wrapToJSON()">Generate JSON</button>
+                    <button id="btnGenHref" class="btnM">Generate JSON</button>
+                </div>
+                <div class="btn_div" id="secondRowContainer">
+                    <pre id="secrowjsonShow"></pre>
                 </div>
              </div>
              

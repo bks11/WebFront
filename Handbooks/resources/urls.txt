@@ -90,3 +90,211 @@ https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Ar
 
 https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 Метод map() создаёт новый массив с результатом вызова указанной функции для каждого элемента массива.
+
+
+//let dataJSON = new Object() - wrong
+//let dataJSON = {} - correct
+
+Деструктуризация
+https://learn.javascript.ru/destructuring-assignment
+
+
+to do 
+
+queryselect 
+bootstrap
+
+
+REDUCE EXAMPLE!
+,
+			newrow 		= template.content.cloneNode(true),
+			testReduce 	= data.reduce((prev, curr) => prev + `	<tr>
+																	<td>${ curr.id }</td>
+																	<td>${ curr.title }</td>
+																	<td>${ curr.time }</td>
+																	<td>${ curr.active }</td>
+																</tr>`,
+		'')
+
+
+      
+
+
+const renderDataToTable = () => {
+   let dataJSON = new Object()
+   dataJSON.data = genData(1010)
+   const tblData = dataJSON.data
+   if('content' in document.createElement('template')) {
+      const tbody = document.querySelector('tbody')
+     const template = document.querySelector('#recordrow')
+ 
+     for(let i = 0; i < tblData.length; i++) {
+       const newrow = template.content.cloneNode(true)
+       const td = newrow.querySelectorAll('td')
+       td[0].textContent = tblData[i].id
+       td[1].textContent = tblData[i].title
+       td[2].textContent = tblData[i].time
+       td[3].textContent = tblData[i].active
+ 
+       tbody.appendChild(newrow)
+     }
+     } else {
+         alert('Broser not supports template')
+     }
+ }
+ 
+
+
+ // const renderData = () => {
+   //   const tblCont = document.getElementById('tblArea')
+   //   let tblData = RESPONSE.data
+   //     //Create table
+   //   const tbl = document.createElement('table')
+   //   const tblHeaderRow = document.createElement('tr')
+   //   const idHeader = document.createElement('th')
+   //   idHeader.appendChild(document.createTextNode('id'))
+   //   const titleHeader = document.createElement('th')
+   //   titleHeader.appendChild(document.createTextNode('title'))
+   //   const timeHeader = document.createElement('th')
+   //   timeHeader.appendChild(document.createTextNode('time'))
+   //   const activeHeader = document.createElement('th')
+   //   activeHeader.appendChild(document.createTextNode('active'))
+   
+   //   tblHeaderRow.appendChild(idHeader)
+   //   tblHeaderRow.appendChild(titleHeader)
+   //   tblHeaderRow.appendChild(timeHeader)
+   //   tblHeaderRow.appendChild(activeHeader)
+   //   tbl.appendChild(tblHeaderRow)
+     
+   //   for(let i = 0; i < tblData.length; i++) {
+   //     let tblRow = document.createElement('tr')  
+   
+   //     let idData = tblData[i].id
+   //     let titleData = tblData[i].title
+   //     let timeData = tblData[i].time
+   //     let activeData = tblData[i].active
+           
+   //     const idCell = document.createElement('td')
+   //     const titleCell = document.createElement('td')
+   //     const timeCell  = document.createElement('td')
+   //     const activeCell = document.createElement('td')
+   
+   //     idCell.appendChild(document.createTextNode(idData))
+   //     titleCell.appendChild(document.createTextNode(titleData))
+   //     timeCell.appendChild(document.createTextNode(timeData))
+   //     activeCell.appendChild(document.createTextNode(activeData))
+   
+   //     tblRow.appendChild(idCell)
+   //     tblRow.appendChild(titleCell)
+   //     tblRow.appendChild(timeCell)
+   //     tblRow.appendChild(activeCell)
+   
+   //     tbl.appendChild(tblRow)
+   //   }
+   //   tblCont.appendChild(tbl)
+   // }
+   // const ff = () => {
+   //   let a = getData()
+   // }
+
+   
+const RESP = {
+   a: function(){
+     alert()
+   },
+   b: () => {
+ 
+   },
+   c() { 
+     this === RESP
+     this.a
+ 
+   }
+ }
+
+ 
+// readJSONFromFile(function(text){
+   //   let data = JSON.parse(text);
+   //   document.getElementById("jsonShow").innerHTML = JSON.stringify(data, undefined, 2);
+   // })
+   
+   //Back quotes
+   //const template = document.createElement('template')
+   //const newrow = template.content.cloneNode(true)
+   
+   
+   // const table = `<table>
+   //   <thead>
+   // 		<tr>
+   // 				<td>id</td>
+   // 				<td>title</td>
+   // 				<td>time</td>
+   // 				<td>active</td>
+   // 		</tr>
+   // </thead>
+   // <tbody>
+   // 		${}  // reduce map
+   // </tbody>
+   // </table>`
+   
+   // template.innerHTML = table
+   // container.append(template.content.cloneNode(true))
+   
+   
+   
+   
+   // function readJSONFromFile(callback){
+   //     let xobj = new XMLHttpRequest()
+   //     xobj.overrideMimeType('application/json')
+   //     xobj.open('GET','data.json',true)
+   //     xobj.onreadystatechange = function () {
+   //         if (xobj.readyState == 4 && xobj.status == '200') {
+   
+   //             // .open will NOT return a value but simply returns undefined in async mode so use a callback
+   // //             callback(xobj.responseText)
+   // //         }
+   // //     }
+   // //     xobj.send(null)
+   // // }
+   
+   
+   // // function getData(){
+   // //     loadJSON(function(response) {
+   // //         // Do Something with the response e.g.
+   // //         let jsonresponse = JSON.parse(response)
+           
+   // //         // Assuming json data is wrapped in square brackets as Drew suggests
+   // //         console.log(jsonresponse[0].name)
+           
+   // //         }
+   // //     )
+   // // }
+   
+   // function genereateObjects(){
+   //     let arr = new Array()
+   //     let b = i % 2 === 0 ? true : false
+   
+   //     for(i = 0 i <=1000 i++){
+   //         let data = {
+   //             id = i,
+   //             title = 'Titel' + i,
+   //             time = new Date,
+   //             active =b
+   //         }
+   //         arr[i] = data
+   //     }
+   //     return arr
+   // }
+   
+   // function generateJson(){
+   //     let arr = genereateObjects()
+   //     let jsonString = JSON.stringify(arr)
+   // }
+   
+   // let data = {
+   //     id = 0,
+   //     title = 'Title3',
+   //     time = new Date().toUTCString,
+   //     active = true
+   // }
+   
